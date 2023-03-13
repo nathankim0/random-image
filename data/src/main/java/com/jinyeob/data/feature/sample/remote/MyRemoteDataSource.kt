@@ -3,6 +3,9 @@ package com.jinyeob.data.feature.sample.remote
 import retrofit2.http.GET
 
 interface MyRemoteDataSource {
-    @GET("weather?q=Seoul&appid=2834387742b25d5393a21e88fee8246a")
-    suspend fun getMyData(): MyResponseDto
+    @GET("https://api.unsplash.com/photos/?client_id=JanbICZpVwgzFXeEgveBItyBXdfUnCifQ4ClaCByTyM")
+    suspend fun getImages(): List<UnsplashImageElement>
+
+    @GET("https://api.unsplash.com/photos/random/?client_id=JanbICZpVwgzFXeEgveBItyBXdfUnCifQ4ClaCByTyM")
+    suspend fun getRandomImage(): UnsplashImageElement
 }

@@ -7,43 +7,43 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class MyResponseDto(
-    @Json(name="weather")
+    @Json(name = "weather")
     val weather: List<WeatherDto?>,
 
-    @Json(name="coord")
+    @Json(name = "coord")
     val coord: Coord?,
 
-    @Json(name="base")
+    @Json(name = "base")
     val base: String?,
 
-    @Json(name="main")
+    @Json(name = "main")
     val main: Main?,
 
-    @Json(name="visibility")
+    @Json(name = "visibility")
     val visibility: Long?,
 
-    @Json(name="wind")
+    @Json(name = "wind")
     val wind: Wind?,
 
-    @Json(name="clouds")
+    @Json(name = "clouds")
     val clouds: Clouds?,
 
-    @Json(name="dt")
+    @Json(name = "dt")
     val dt: Long?,
 
-    @Json(name="sys")
+    @Json(name = "sys")
     val sys: Sys?,
 
-    @Json(name="timezone")
+    @Json(name = "timezone")
     val timezone: Long?,
 
-    @Json(name="id")
+    @Json(name = "id")
     val id: Long?,
 
-    @Json(name="name")
+    @Json(name = "name")
     val name: String?,
 
-    @Json(name="cod")
+    @Json(name = "cod")
     val cod: Long?
 ) {
     companion object {
@@ -62,20 +62,20 @@ data class MyResponseDto(
 
 @JsonClass(generateAdapter = true)
 data class WeatherDto(
-    @Json(name="id") val id: Long?,
-    @Json(name="main") val main: String?,
-    @Json(name="description") val description: String?,
-    @Json(name="icon") val icon: String?,
+    @Json(name = "id") val id: Long?,
+    @Json(name = "main") val main: String?,
+    @Json(name = "description") val description: String?,
+    @Json(name = "icon") val icon: String?,
 )
 
 @JsonClass(generateAdapter = true)
-data class Clouds (
+data class Clouds(
     @Json(name = "all")
     val all: Long?
 )
 
 @JsonClass(generateAdapter = true)
-data class Coord (
+data class Coord(
     @Json(name = "lon")
     val lon: Double?,
     @Json(name = "lat")
@@ -83,7 +83,7 @@ data class Coord (
 )
 
 @JsonClass(generateAdapter = true)
-data class Main (
+data class Main(
     @Json(name = "temp")
     val temp: Double?,
 
@@ -110,7 +110,7 @@ data class Main (
 )
 
 @JsonClass(generateAdapter = true)
-data class Sys (
+data class Sys(
     @Json(name = "type")
     val type: Long?,
     @Json(name = "id")
@@ -124,7 +124,7 @@ data class Sys (
 )
 
 @JsonClass(generateAdapter = true)
-data class Wind (
+data class Wind(
     @Json(name = "speed")
     val speed: Double?,
     @Json(name = "deg")

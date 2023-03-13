@@ -180,4 +180,6 @@ dependencies {
         androidTestImplementation(ANDROID_TEST_CORE)
         androidTestRuntimeOnly(ANDROID_TEST_RUNNER)
     }
+
+    implementation("com.android.support:palette-v7:21.0.+")
 }
