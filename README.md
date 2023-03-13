@@ -1,3 +1,3 @@
-# Android Project Template
+# Random Image
 
 Clean Architecture
