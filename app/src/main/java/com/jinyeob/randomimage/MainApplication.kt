@@ -1,4 +1,4 @@
-package com.jinyeob.nathanks
+package com.jinyeob.randomimage
 
 import android.annotation.SuppressLint
 import android.app.Activity

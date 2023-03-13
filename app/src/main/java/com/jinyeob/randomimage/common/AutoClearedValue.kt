@@ -1,4 +1,4 @@
-package com.jinyeob.nathanks.common
+package com.jinyeob.randomimage.common
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver

@@ -1,4 +1,4 @@
-package com.jinyeob.nathanks
+package com.jinyeob.randomimage
 
 import org.junit.Assert.*
 import org.junit.Test

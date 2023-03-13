@@ -1,4 +1,4 @@
-package com.jinyeob.nathanks
+package com.jinyeob.randomimage
 
 import androidx.lifecycle.ViewModel
 import com.jinyeob.doamin.feature.sample.repository.MyRepository

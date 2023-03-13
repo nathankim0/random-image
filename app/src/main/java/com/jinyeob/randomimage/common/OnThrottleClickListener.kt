@@ -1,8 +1,8 @@
-package com.jinyeob.nathanks.common
+package com.jinyeob.randomimage.common
 
 import android.util.Log
 import android.view.View
-import com.jinyeob.nathanks.MainApplication.Companion.TAG
+import com.jinyeob.randomimage.MainApplication.Companion.TAG
 
 // REFERENCE: https://blog.yena.io/studynote/2019/12/26/Android-Kotlin-ClickListener.html
 /**

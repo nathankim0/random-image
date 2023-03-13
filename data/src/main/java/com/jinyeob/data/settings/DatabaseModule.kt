@@ -2,7 +2,7 @@ package com.jinyeob.data.settings
 
 import android.content.Context
 import androidx.room.Room
-import com.jinyeob.nathanks.BuildConfig
+import com.jinyeob.randomimage.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

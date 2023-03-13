@@ -1,4 +1,4 @@
-package com.jinyeob.nathanks
+package com.jinyeob.randomimage
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
