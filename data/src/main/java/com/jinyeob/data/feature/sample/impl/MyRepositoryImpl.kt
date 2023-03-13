@@ -29,4 +29,8 @@ internal class MyRepositoryImpl @Inject constructor(
     override suspend fun getRandomImage(): Result<UnsplashImageModel> = runCatching {
         myRemoteDataSource.getRandomImage().toModel()
     }
+
+    override fun getFreeRandomImage(): String {
+        return "https://source.unsplash.com/random"
+    }
 }

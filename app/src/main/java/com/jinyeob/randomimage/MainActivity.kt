@@ -10,6 +10,7 @@ import androidx.palette.graphics.Palette
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.jinyeob.randomimage.common.LoadingStatus
 import com.jinyeob.randomimage.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -24,34 +25,59 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
 
+        init()
+
+        setContentView(binding.root)
+    }
+
+    private fun init() {
         lifecycleScope.launch {
             mainViewModel.randomImageState.collect { image ->
-                Glide.with(this@MainActivity)
-                    .asBitmap()
-                    .load(image.url)
-                    .into(object : CustomTarget<Bitmap>() {
-                        override fun onResourceReady(
-                            resource: Bitmap,
-                            transition: Transition<in Bitmap>?
-                        ) {
-                            binding.imageView.setImageBitmap(resource)
-                            Palette.from(resource).generate { palette ->
-                                val color = palette?.getDominantColor(0)
-                                binding.root.setBackgroundColor(color ?: 0)
-                            }
-                        }
+                setImageGlide(image.url)
+            }
+        }
 
-                        override fun onLoadCleared(placeholder: Drawable?) {
-                        }
-                    })
+        lifecycleScope.launch {
+            mainViewModel.getRandomImageLoadingStatus.collect { status ->
+                when (status) {
+                    LoadingStatus.LOADING -> {
+                        binding.swipeLayout.isRefreshing = true
+                    }
+                    LoadingStatus.SUCCESS -> {
+                        binding.swipeLayout.isRefreshing = false
+                    }
+                    LoadingStatus.FAILURE -> {
+                        binding.swipeLayout.isRefreshing = false
+                    }
+                    else -> {
+                    }
+                }
             }
         }
 
         binding.swipeLayout.setOnRefreshListener {
             mainViewModel.refreshRandomImage()
-            binding.swipeLayout.isRefreshing = false
         }
+    }
 
-        setContentView(binding.root)
+    private fun setImageGlide(imageUrl: String) {
+        Glide.with(this@MainActivity)
+            .asBitmap()
+            .load(imageUrl)
+            .into(object : CustomTarget<Bitmap>() {
+                override fun onResourceReady(
+                    resource: Bitmap,
+                    transition: Transition<in Bitmap>?
+                ) {
+                    binding.imageView.setImageBitmap(resource)
+                    Palette.from(resource).generate { palette ->
+                        val color = palette?.getDominantColor(0)
+                        binding.root.setBackgroundColor(color ?: 0)
+                    }
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+                }
+            })
     }
 }

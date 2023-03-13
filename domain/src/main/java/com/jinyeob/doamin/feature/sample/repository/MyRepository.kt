@@ -8,4 +8,6 @@ interface MyRepository {
     fun getImagesFlow(): Flow<List<UnsplashImageModel>>
 
     suspend fun getRandomImage(): Result<UnsplashImageModel>
+
+    fun getFreeRandomImage(): String
 }
