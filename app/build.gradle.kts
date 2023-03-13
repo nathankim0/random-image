@@ -182,4 +182,11 @@ dependencies {
     }
 
     implementation("com.android.support:palette-v7:21.0.+")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.4.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    // Google PLay Billing library.
+    val billing_version = "5.0.0"
+    implementation("com.android.billingclient:billing-ktx:$billing_version")
 }

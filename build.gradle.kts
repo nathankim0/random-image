@@ -12,6 +12,7 @@ buildscript {
         classpath(EtcConfig.LINT)
         classpath(TestConfig.ANDROID_JUNIT5)
         classpath(FirebaseConfig.APP_DISTRIBUTION)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
     }
 }
 
