@@ -84,11 +84,11 @@ object GooglePayUtil : PurchasesUpdatedListener {
     }
 
     fun getPay(activity: Activity) {
-        val list: MutableList<BillingFlowParams.ProductDetailsParams> = mutableListOf()
+        val productDetailsParams: MutableList<BillingFlowParams.ProductDetailsParams> = mutableListOf()
 
         for (i in productDetailsList.indices) {
             if (productDetailsList[i].productId == "payment_id") {
-                list.add(
+                productDetailsParams.add(
                     BillingFlowParams.ProductDetailsParams.newBuilder()
                         .setProductDetails(productDetailsList[i])
                         .build()
@@ -96,12 +96,17 @@ object GooglePayUtil : PurchasesUpdatedListener {
             }
         }
 
+        if(productDetailsParams.isEmpty()) {
+            LogUtil.d(TAG, "결제 불가: productDetailsParams is empty")
+            return
+        }
+
         // Google Play 결제
         when (
             billingClient.launchBillingFlow(
                 activity,
                 BillingFlowParams.newBuilder()
-                    .setProductDetailsParamsList(list)
+                    .setProductDetailsParamsList(productDetailsParams)
                     .build()
             ).responseCode
         ) {

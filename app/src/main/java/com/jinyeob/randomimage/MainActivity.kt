@@ -1,5 +1,6 @@
 package com.jinyeob.randomimage
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -11,7 +12,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.jinyeob.randomimage.common.LoadingStatus
+import com.jinyeob.randomimage.common.onThrottleClick
 import com.jinyeob.randomimage.databinding.ActivityMainBinding
+import com.jinyeob.randomimage.money.MoneyActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -26,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         init()
+
+        binding.button.onThrottleClick {
+            startActivity(Intent(this, MoneyActivity::class.java))
+        }
 
         setContentView(binding.root)
     }
