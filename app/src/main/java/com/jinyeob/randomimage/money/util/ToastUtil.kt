@@ -32,7 +32,7 @@ object ToastUtil {
         toast.show()
     }
 
-    fun showCustomShortToastNormal(context: Context?, string: String?, dp : Int) {
+    fun showCustomShortToastNormal(context: Context?, string: String?, dp: Int) {
         val toast = Toast(context)
         val linearLayout = LinearLayout(context)
         linearLayout.orientation = LinearLayout.HORIZONTAL

@@ -33,5 +33,4 @@ object Constants {
     const val SUBSCRIPTION_ROUTE = "subscription"
     const val BASIC_BASE_PLANS_ROUTE = "basicBasePlans"
     const val PREMIUM_BASE_PLANS_ROUTE = "premiumBasePlans"
-
 }

@@ -104,7 +104,6 @@ class BillingClientWrapper(
                 } else {
                     _purchases.value = emptyList()
                 }
-
             } else {
                 Log.e(TAG, billingResult.debugMessage)
             }
@@ -146,9 +145,9 @@ class BillingClientWrapper(
                     Log.e(
                         TAG,
                         "onProductDetailsResponse: " +
-                                "Found null or empty ProductDetails. " +
-                                "Check to see if the Products you requested are correctly " +
-                                "published in the Google Play Console."
+                            "Found null or empty ProductDetails. " +
+                            "Check to see if the Products you requested are correctly " +
+                            "published in the Google Play Console."
                     )
                 } else {
                     newMap = productDetailsList.associateBy {
@@ -169,7 +168,6 @@ class BillingClientWrapper(
             Log.e(TAG, "launchBillingFlow: BillingClient is not ready")
         }
         billingClient.launchBillingFlow(activity, params)
-
     }
 
     // PurchasesUpdatedListener that helps handle new purchases returned from the API
@@ -177,8 +175,8 @@ class BillingClientWrapper(
         billingResult: BillingResult,
         purchases: List<Purchase>?
     ) {
-        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK
-            && !purchases.isNullOrEmpty()
+        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK &&
+            !purchases.isNullOrEmpty()
         ) {
             // Post new purchase List to _purchases
             _purchases.value = purchases

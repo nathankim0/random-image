@@ -23,7 +23,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 
-
 /**
  * The [SubscriptionDataRepository] processes and tranforms the [StateFlow] data received from
  * the [BillingClientWrapper] into [Flow] data available to the viewModel.

@@ -2,7 +2,7 @@ package com.jinyeob.randomimage.money.util
 
 import android.util.Log
 
-object DlogUtil {
+object LogUtil {
     var debugMode = true
     fun d(TAG: String?, `object`: Any) {
         if (debugMode) {
